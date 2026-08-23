@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:docs.worldpay.com)",
+      "WebSearch",
+      "WebFetch(domain:developer.worldpay.com)",
+      "PowerShell(.\\\\mvnw.cmd -q -o compile 2>&1 | Select-Object -Last 100)",
+      "PowerShell(Get-Content pom.xml -TotalCount 3 -Encoding Byte 2>$null; Write-Host \"---\"; [System.IO.File]::ReadAllBytes\\(\"pom.xml\"\\) | Select-Object -First 20)",
+      "PowerShell(.\\\\mvnw.cmd -q compile 2>&1 | Select-Object -Last 150)",
+      "PowerShell(.\\\\mvnw.cmd dependency:tree > tree.txt 2>&1; Get-Content tree.txt | Select-Object -Last 200)",
+      "PowerShell(Remove-Item *)",
+      "PowerShell(.\\\\mvnw.cmd -q test 2>&1 | Select-Object -Last 250)",
+      "PowerShell(.\\\\mvnw.cmd -q test 2>&1 | Select-Object -Last 300)",
+      "PowerShell(Get-CimInstance *)",
+      "PowerShell(Get-Process *)",
+      "PowerShell(Stop-Process *)"
+    ]
+  }
+}
